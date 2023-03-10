@@ -9,15 +9,22 @@ public class Record
     private Queue<ReplayData> _originalQueue;
     private Queue<ReplayData> _replayQueue;
 
-    public Record(Queue<ReplayData> recordingQueue)
+    private Vector3 _startPosition;
+    private Quaternion _startRotation;
+
+    public Record(Queue<ReplayData> recordingQueue, Vector3 startPosition, Quaternion startRotation)
     {
         _originalQueue = new Queue<ReplayData>(recordingQueue);
         _replayQueue = new Queue<ReplayData>(recordingQueue);
+        _startPosition = startPosition;
+        _startRotation = startRotation;
     }
 
     public void RestartFromBegining()
     {
         _replayQueue = new Queue<ReplayData>(_originalQueue);
+        ReplayObject.transform.position = _startPosition;
+        ReplayObject.transform.rotation = _startRotation;
     }
 
     public bool PlayNextFrame()
@@ -44,8 +51,7 @@ public class Record
         if (_replayQueue.Count != 0)
         {
             ReplayData startingData = _replayQueue.Peek();
-            ReplayObject = Object.Instantiate(replayObjectPrafab, startingData.Position, startingData.Rotation).GetComponent<ReplayObject>();
-
+            ReplayObject = Object.Instantiate(replayObjectPrafab, _startPosition, Quaternion.identity).GetComponent<ReplayObject>();
         }
     }
 

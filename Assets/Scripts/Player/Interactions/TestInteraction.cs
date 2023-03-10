@@ -5,8 +5,12 @@ using UnityEngine;
 
 public class TestInteraction : Interactable
 {
+    [SerializeField] private DialogueHandler _dialogueHandler;
+
+    [SerializeField] private DialogueInfo _dialogueInfo;
+
     public override void OnInteract()
     {
-        Debug.Log("Interacted with " + name);
+        _dialogueHandler.StartDialogue(_dialogueInfo);
     }
 }

@@ -14,21 +14,15 @@ public class InteractionCatcher : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if(other.TryGetComponent(out Interactable interactable))
-        {
-            Debug.Log("entered");
-
             TryToSetInteraction(interactable);
-        }
+        
     }
 
     private void OnTriggerExit(Collider other)
     {
         if(other.TryGetComponent(out Interactable interactable))
-        {
-            Debug.Log("exited");
-
             TryToRemoveInteraction(interactable);
-        }
+        
     }
 
     public void OnInteract()
