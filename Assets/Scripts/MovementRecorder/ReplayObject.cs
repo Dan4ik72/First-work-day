@@ -8,6 +8,7 @@ public class ReplayObject : MonoBehaviour
     [SerializeField] private float _stopSpeed = 1;
     [SerializeField] private Vector3 _limitVelocity = new Vector3(4f, 4f, 4f);
     [SerializeField] private float _visualModelRotationSpeed = 10f;
+    //[SerializeField] private Animator _animator;
 
     private Rigidbody _rigidbody;
     private float _horizontalSpeed;
@@ -24,8 +25,14 @@ public class ReplayObject : MonoBehaviour
         _horizontalSpeed = data.Horizontal * _speed;
         _verticalSpeed = data.Vertical * _speed;
 
+        /*if (_horizontalSpeed != 0 || _verticalSpeed != 0)
+            _animator.SetBool("Walking", true);
+        else
+            _animator.SetBool("Walking", false);
+        */
         Move();
     }
+
     private void Move()
     {
         _targetSpeed = new Vector3(_horizontalSpeed * Time.fixedDeltaTime, 0f, _verticalSpeed * Time.fixedDeltaTime);
