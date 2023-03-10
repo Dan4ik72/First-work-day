@@ -53,8 +53,7 @@ public class DialogueRenderer : MonoBehaviour
             return;
         }
 
-        _leftSideImage.sprite = _dialogueInfo.DialogueLines[_lineIndex].LeftSideIcon;
-        _rightSideImage.sprite = _dialogueInfo.DialogueLines[_lineIndex].RightSideIcon;
+        SetImages();
 
         _line.text = string.Empty;
 
@@ -77,6 +76,35 @@ public class DialogueRenderer : MonoBehaviour
         }
 
         _textRenderCoroutine = null;
+    }
+
+    private void SetImages()
+    {
+        Sprite leftSideIconSprite = _dialogueInfo.DialogueLines[_lineIndex].LeftSideIcon;
+        Sprite rightSideIconSprite = _dialogueInfo.DialogueLines[_lineIndex].RightSideIcon;
+
+        Color originalColor = new Color(255, 255, 255,255);
+        Color transperedColor = new Color(_leftSideImage.color.r, _leftSideImage.color.g, _leftSideImage.color.b, 0f);
+
+        if (leftSideIconSprite == null)
+        {
+            _leftSideImage.color = transperedColor;
+        }
+        else
+        {
+            _leftSideImage.color = originalColor;
+            _leftSideImage.sprite = leftSideIconSprite;
+        }
+
+        if (rightSideIconSprite == null)
+        {
+            _rightSideImage.color = transperedColor;
+        }
+        else
+        {
+            _rightSideImage.color = originalColor;
+            _rightSideImage.sprite = rightSideIconSprite;
+        }
     }
 
     private void EndDialogue()

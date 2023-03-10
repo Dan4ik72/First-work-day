@@ -9,7 +9,7 @@ public class Recorder : MonoBehaviour
 
     private Queue<ReplayData> _recordQueue;
     private bool _isDoingReplay = false;
-    private bool _isRecording = false;
+    private bool _isRecording = true;
     private Record _record;
 
     private void Awake()
@@ -19,7 +19,7 @@ public class Recorder : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
+        /*if (Input.GetKeyDown(KeyCode.R))
         {
             if (_isRecording == false)
             {
@@ -32,11 +32,10 @@ public class Recorder : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.P))
         {
-            _isRecording = false;
-            _isDoingReplay = true;
             StartReplay();
             Debug.Log("Playing record started");
         }
+        */
 
         if (_isDoingReplay == true)
         {
@@ -61,12 +60,26 @@ public class Recorder : MonoBehaviour
         _recordQueue.Enqueue(data);
     }
 
-    private void StartReplay()
+    public void StopRecording()
     {
-        _isDoingReplay = true;
+        _isRecording = false;
+    }
+
+    public void StartCorutineReplay()
+    {
+        StartCoroutine(StartReplay());
+    }
+
+    private IEnumerator StartReplay()
+    {
         _record = new Record(_recordQueue);
         _recordQueue.Clear();
         _record.InstantiateReplayObject(_replayObjectPrefab);
+        _isRecording = false;
+
+        yield return new WaitForSeconds(2f);
+
+        _isDoingReplay = true;
     }
 
     private void RestartReplay()
