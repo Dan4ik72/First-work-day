@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7288f289ee3b454eaf34cc701732d9b, type: 3}
   m_Name: Test
   m_EditorClassIdentifier: 
-  _dialogueLines: []
+  _dialogueLines:
+  - _name: 
+    _text: 
+    _leftSideIcon: {fileID: 0}
+    _rightSideIcon: {fileID: 0}

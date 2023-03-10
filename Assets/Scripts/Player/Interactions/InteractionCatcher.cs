@@ -5,9 +5,7 @@ using UnityEngine.Events;
 
 public class InteractionCatcher : MonoBehaviour
 {
-    public event UnityAction<Interactable> InteractableEntered;
-    public event UnityAction<Interactable> Interacted;
-    public event UnityAction<Interactable> InteractableExited;
+    [SerializeField] private InteractionRenderer _interactionRenderer;
 
     private Interactable _currentInteractable;
 
@@ -36,7 +34,7 @@ public class InteractionCatcher : MonoBehaviour
     public void OnInteract()
     {
         _currentInteractable.OnInteract();
-        Interacted?.Invoke(_currentInteractable);
+        _interactionRenderer.DisableRender();
         _currentInteractable = null;
     }
 
@@ -47,7 +45,7 @@ public class InteractionCatcher : MonoBehaviour
 
         _currentInteractable = _currentInteractable == null ? interactable : _currentInteractable;
 
-        InteractableEntered?.Invoke(_currentInteractable);
+        _interactionRenderer.RenderInteraction(interactable.InteractionDescription, interactable.InteractionIcon);
     }
 
     private void TryToRemoveInteraction(Interactable interactable)
@@ -55,8 +53,8 @@ public class InteractionCatcher : MonoBehaviour
         if (interactable != _currentInteractable)
             return;
 
-        InteractableExited?.Invoke(_currentInteractable);
-
+        _interactionRenderer.DisableRender();
+        
         _currentInteractable = null;
     }
 }
