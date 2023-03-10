@@ -1960,6 +1960,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _target: {fileID: 1025972157}
+  _camera: {fileID: 963194228}
+  _zoomStep: 4
+  _zoomDampening: 7.5
+  _zoomMinHeight: 4
+  _zoomMaxHeight: 9
+  _zoomSpeed: 2
 --- !u!4 &1452887536
 Transform:
   m_ObjectHideFlags: 0
