@@ -11,32 +11,18 @@ public class Recorder : MonoBehaviour
     private bool _isDoingReplay = false;
     private bool _isRecording = true;
     private Record _record;
+    private Vector3 _startPosition;
+    private Quaternion _startRotation;
 
     private void Awake()
     {
         _recordQueue = new Queue<ReplayData>();
+        _startPosition = transform.position;
+        _startRotation = transform.rotation;
     }
 
     private void Update()
     {
-        /*if (Input.GetKeyDown(KeyCode.R))
-        {
-            if (_isRecording == false)
-            {
-                _recordQueue = new Queue<ReplayData>();
-                _isDoingReplay = false;
-                _isRecording = true;
-                Debug.Log("Recording started");
-            }
-        }
-
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            StartReplay();
-            Debug.Log("Playing record started");
-        }
-        */
-
         if (_isDoingReplay == true)
         {
             bool hasMoreFrames = _record.PlayNextFrame();
@@ -50,12 +36,7 @@ public class Recorder : MonoBehaviour
     {
         if (_isRecording == true)
         {
-            bool up = Input.GetAxisRaw("Vertical") == 1;
-            bool down = Input.GetAxisRaw("Vertical") == -1;
-            bool right = Input.GetAxisRaw("Horizontal") == 1;
-            bool left = Input.GetAxisRaw("Horizontal") == -1;
-
-            ReplayData data = new ReplayData(transform.position, transform.rotation, up, right, down, left);
+            ReplayData data = new ReplayData(transform.position, transform.rotation, Input.GetAxisRaw("Vertical"), Input.GetAxisRaw("Horizontal"));
             RecordReplayFrame(data);
         }
     }
@@ -72,12 +53,12 @@ public class Recorder : MonoBehaviour
 
     public void StartCorutineReplay()
     {
-        StartCoroutine(StartReplay());
+        StartCoroutine(PlayReplay());
     }
 
-    private IEnumerator StartReplay()
+    private IEnumerator PlayReplay()
     {
-        _record = new Record(_recordQueue);
+        _record = new Record(_recordQueue, _startPosition, _startRotation);
         _recordQueue.Clear();
         _record.InstantiateReplayObject(_replayObjectPrefab);
         _isRecording = false;

@@ -7,18 +7,14 @@ public struct ReplayData
     public Vector3 Position { get; private set; }
     public Quaternion Rotation { get; private set; }
 
-    public bool Up;
-    public bool Right;
-    public bool Down;
-    public bool Left;
+    public float Vertical;
+    public float Horizontal;
 
-    public ReplayData(Vector3 position, Quaternion rotation, bool up, bool right, bool down, bool left)
+    public ReplayData(Vector3 position, Quaternion rotation, float vertical, float horizontal)
     {
         Position = position;
         Rotation = rotation;
-        Up = up;
-        Right = right;
-        Down = down;
-        Left = left;
+        Vertical = vertical;
+        Horizontal = horizontal;
     }
 }
