@@ -1,17 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
-[RequireComponent(typeof(Transform))]
 public class Movement : MonoBehaviour
 {
-    [SerializeField] private float _speed = 5;
+    [SerializeField] private float _speed = 55;
     [SerializeField] private float _stopSpeed = 1;
-    [SerializeField] private Vector3 _limitVelocity;
-    [SerializeField] private float _visualModelRotationSpeed = 5f;
-    
-    private Transform _transform;
+    [SerializeField] private Vector3 _limitVelocity = new Vector3(4f, 4f, 4f);
+    [SerializeField] private float _visualModelRotationSpeed = 10f;
+
     private Rigidbody _rigidbody;
     private float _horizontalSpeed;
     private float _verticalSpeed;
@@ -20,7 +16,6 @@ public class Movement : MonoBehaviour
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
-        _transform = GetComponent<Transform>();
     }
 
     private void FixedUpdate()
@@ -41,7 +36,8 @@ public class Movement : MonoBehaviour
             LimitVelocity(_limitVelocity);
 
             var angle = Quaternion.Euler(new Vector3(0, -Vector3.SignedAngle(_rigidbody.velocity, Vector3.forward, Vector3.up)));
-            _transform.rotation = Quaternion.RotateTowards(_transform.rotation, angle, _visualModelRotationSpeed);
+            Debug.Log(angle);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, angle, _visualModelRotationSpeed);
         }
         else
         {
