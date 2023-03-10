@@ -311,6 +311,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1025972157}
   - component: {fileID: 1025972156}
+  - component: {fileID: 1025972160}
   - component: {fileID: 1025972155}
   - component: {fileID: 1025972154}
   - component: {fileID: 1025972158}
@@ -433,7 +434,20 @@ MonoBehaviour:
   _speed: 10
   _stopSpeed: 1
   _limitVelocity: {x: 2, y: 2, z: 1}
-  _visualModelTransform: {fileID: 1025972157}
+  _visualModelRotationSpeed: 5
+--- !u!114 &1025972160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1025972153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7f1a0488b6860d4a9ce5f1b1cd2cea1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _replayObjectPrefab: {fileID: 1329147144364865713, guid: 84da4ad2d6961ed4aa0a395bf52612b7, type: 3}
 --- !u!1 &1084683514
 GameObject:
   m_ObjectHideFlags: 0
