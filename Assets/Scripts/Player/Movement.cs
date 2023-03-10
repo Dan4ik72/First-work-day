@@ -9,13 +9,13 @@ public class Movement : MonoBehaviour
     [SerializeField] private float _speed = 5;
     [SerializeField] private float _stopSpeed = 1;
     [SerializeField] private Vector3 _limitVelocity;
+    [SerializeField] private float _visualModelRotationSpeed = 5f;
     
     private Transform _transform;
     private Rigidbody _rigidbody;
     private float _horizontalSpeed;
     private float _verticalSpeed;
     private Vector3 _targetSpeed;
-    private float _visualModelRotationSpeed = 15f;
 
     private void Start()
     {
