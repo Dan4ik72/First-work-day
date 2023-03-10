@@ -36,7 +36,6 @@ public class Movement : MonoBehaviour
             LimitVelocity(_limitVelocity);
 
             var angle = Quaternion.Euler(new Vector3(0, -Vector3.SignedAngle(_rigidbody.velocity, Vector3.forward, Vector3.up)));
-            Debug.Log(angle);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, angle, _visualModelRotationSpeed);
         }
         else
