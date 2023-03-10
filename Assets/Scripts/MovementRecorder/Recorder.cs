@@ -50,7 +50,12 @@ public class Recorder : MonoBehaviour
     {
         if (_isRecording == true)
         {
-            ReplayData data = new ReplayData(transform.position, transform.rotation);
+            bool up = Input.GetAxisRaw("Vertical") == 1;
+            bool down = Input.GetAxisRaw("Vertical") == -1;
+            bool right = Input.GetAxisRaw("Horizontal") == 1;
+            bool left = Input.GetAxisRaw("Horizontal") == -1;
+
+            ReplayData data = new ReplayData(transform.position, transform.rotation, up, right, down, left);
             RecordReplayFrame(data);
         }
     }
