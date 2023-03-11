@@ -95,4 +95,15 @@ public class Game : MonoBehaviour
         _notInTimePanel.SetActive(true);
         _player.GetComponent<Movement>().enabled = false;
     }
+
+    public bool IsQuestsDone()
+    {
+        foreach (var quest in _quests)
+        {
+            if (quest.IsAvailable == false)
+                return false;
+        }
+
+        return true;
+    }
 }

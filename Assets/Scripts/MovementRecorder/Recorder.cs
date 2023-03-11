@@ -29,7 +29,15 @@ public class Recorder : MonoBehaviour
 
             if (hasMoreFrames == false)
             {
-                Game.Instance.ShowNotInTimePanel();
+                if (Game.Instance.IsQuestsDone())
+                {
+
+                }
+                else
+                {
+                    Game.Instance.ShowNotInTimePanel();
+                }
+
                 _isDoingReplay = false;
             }
         }
