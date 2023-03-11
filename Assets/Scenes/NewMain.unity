@@ -4463,8 +4463,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7745430842825142831}
-  - {fileID: 489321893}
   - {fileID: 859678872820140500}
+  - {fileID: 489321893}
   - {fileID: 543450653141972543}
   - {fileID: 543450653169659638}
   - {fileID: 543450652988166170}
@@ -10474,6 +10474,34 @@ PrefabInstance:
       propertyPath: _movement
       value: 
       objectReference: {fileID: 1025972159}
+    - target: {fileID: 2346013269292910939, guid: b173328f2f4e29241a6d3cf31742fc05, type: 3}
+      propertyPath: m_fontSize
+      value: 42.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2346013269292910939, guid: b173328f2f4e29241a6d3cf31742fc05, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 1c3ae4db7ec54414b91156a1d755ac8b, type: 2}
+    - target: {fileID: 2346013269292910939, guid: b173328f2f4e29241a6d3cf31742fc05, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -3195144214077040233, guid: 1c3ae4db7ec54414b91156a1d755ac8b, type: 2}
+    - target: {fileID: 2898576424168190200, guid: b173328f2f4e29241a6d3cf31742fc05, type: 3}
+      propertyPath: m_fontSize
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 2898576424168190200, guid: b173328f2f4e29241a6d3cf31742fc05, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 79e4807b073aeb0429845ed84667b646, type: 2}
+    - target: {fileID: 2898576424168190200, guid: b173328f2f4e29241a6d3cf31742fc05, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 2898576424168190200, guid: b173328f2f4e29241a6d3cf31742fc05, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3103073152218492493, guid: b173328f2f4e29241a6d3cf31742fc05, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -11987,7 +12015,7 @@ Transform:
   - {fileID: 3143368459398427268}
   - {fileID: 3803154414058679015}
   m_Father: {fileID: 1045672182}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: -89.89, z: 0}
 --- !u!65 &859678872820140501
 BoxCollider:
