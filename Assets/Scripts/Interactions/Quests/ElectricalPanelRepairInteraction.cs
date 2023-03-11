@@ -10,7 +10,7 @@ public class ElectricalPanelRepairInteraction : Interactable
     private Vector3 _startPosition;
     private Quaternion _startRotation;
 
-    public event UnityAction ElectrilacPanelRepaired;
+    //public event UnityAction ElectrilacPanelRepaired;
 
     [SerializeField] private Animator _playerAnimator;
 
@@ -40,7 +40,7 @@ public class ElectricalPanelRepairInteraction : Interactable
 
         playerMovement.enabled = true;
 
-        ElectrilacPanelRepaired?.Invoke();
+        //InteractionDone?.Invoke();
 
         IsAvailable = false;
     }
