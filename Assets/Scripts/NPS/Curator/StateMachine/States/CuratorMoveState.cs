@@ -42,6 +42,8 @@ public class CuratorMoveState : MonoBehaviour
             return;
         }
 
+        _dialogueState.enabled = false;
+
         _currentPathIndex++;
         _currentTargetPointIndex = 0;
 

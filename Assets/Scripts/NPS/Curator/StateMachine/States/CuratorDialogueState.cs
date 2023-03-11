@@ -33,8 +33,6 @@ public class CuratorDialogueState : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent(out Player player))
         {
-            Debug.Log(player);
-
             StartDialogue();
         }
     }
@@ -43,7 +41,6 @@ public class CuratorDialogueState : MonoBehaviour
     {
         if (_currentDialogueInfoIndex + 1>= _dialogueInfoSequence.Count)
         {
-            Debug.Log(_currentDialogueInfoIndex);
             return;
         }
 
