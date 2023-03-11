@@ -37,6 +37,7 @@ public class PutOnBoxInteracrtion : Interactable
     {
         base.ResetByDefault();
         _block.SetActive(true);
+        _block.transform.parent = null;
         _block.transform.position = _startPosition;
         _block.transform.rotation = _startRotation;
     }

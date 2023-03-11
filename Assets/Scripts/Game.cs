@@ -15,6 +15,7 @@ public class Game : MonoBehaviour
     [SerializeField] private Player _player;
     [SerializeField] private Interactable[] _quests;
     [SerializeField] private NPCTriggerReactor _NPCTriggerReactor;
+    [SerializeField] private NPCTriggerAfterExplosion _NPCTriggerAfterExplosion;
 
     public static Game Instance;
     private Vector3 _timeMachineBarrierPosition;
@@ -68,8 +69,10 @@ public class Game : MonoBehaviour
     {
         _timeMachineBarrier.GetComponent<MeshCollider>().enabled = false;
         _timeMachineBarrier.rotation = Quaternion.Euler(84.23f, 184.187f, 0f);
+        _NPCTriggerAfterExplosion.NPCMover.enabled = true;
+        Destroy(_NPCTriggerAfterExplosion.gameObject);
 
-        RestartQuests();
+        //RestartQuests();
     }
 
     private void OnRestarted()
@@ -113,11 +116,17 @@ public class Game : MonoBehaviour
         _player.GetComponent<Movement>().enabled = false;
     }
 
+    public void ShowDonePanel()
+    {
+        _donePanel.SetActive(true);
+        _player.GetComponent<Movement>().enabled = false;
+    }
+
     public bool IsQuestsDone()
     {
         foreach (var quest in _quests)
         {
-            if (quest.IsAvailable == false)
+            if (quest.IsAvailable == true)
                 return false;
         }
 

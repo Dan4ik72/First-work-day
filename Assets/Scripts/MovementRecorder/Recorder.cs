@@ -31,7 +31,7 @@ public class Recorder : MonoBehaviour
             {
                 if (Game.Instance.IsQuestsDone())
                 {
-
+                    Game.Instance.ShowDonePanel();
                 }
                 else
                 {

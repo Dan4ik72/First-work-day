@@ -18,7 +18,6 @@ public class PlayerDetector : MonoBehaviour
                 if (hit.transform.TryGetComponent<Player>(out Player p) == true)
                 {
                     Game.Instance.ShowSpottedPanel();
-                    Debug.Log(hit.transform.name);
                     OnPlayerEntered();
                 }
             }

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using System.Linq;
 
-[RequireComponent(typeof(NpsMover))]
+[RequireComponent(typeof(NPCMover))]
 public class CuratorMoveState : MonoBehaviour
 {
     public event UnityAction PathCompleted;
@@ -12,14 +12,14 @@ public class CuratorMoveState : MonoBehaviour
     [SerializeField] private List<TargetPointsHolder> _pathSequence = new List<TargetPointsHolder>();
 
     private CuratorDialogueState _dialogueState;
-    private NpsMover _mover;
+    private NPCMover _mover;
 
     private int _currentPathIndex = -1;
     private int _currentTargetPointIndex = 0;
 
     private void Awake()
     {
-        _mover = GetComponent<NpsMover>();
+        _mover = GetComponent<NPCMover>();
         _dialogueState = GetComponent<CuratorDialogueState>();
 
         _mover.TargetPointReached += SetNextTargetPoint;
