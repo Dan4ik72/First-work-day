@@ -4335,7 +4335,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: cf21c574193523a4cadbc0fbb8b006ef, type: 2}
+  - {fileID: 2100000, guid: e80c50a1ea6595c458534c4e355a5cf2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4554,6 +4554,8 @@ MonoBehaviour:
   _spottedPanel: {fileID: 0}
   _notInTimePanel: {fileID: 0}
   _player: {fileID: 1025972163}
+  _quests: []
+  _NPCTriggerReactor: {fileID: 0}
 --- !u!4 &1150424107 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4315301396323988, guid: e082979a473bb914ab8af10a5d754993, type: 3}

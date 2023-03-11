@@ -7,9 +7,22 @@ public class RestartPowerSupplyInteraction : Interactable
 {
     public event UnityAction PowerSupplyRestarted;
 
-    [SerializeField] private MeshRenderer _bulbMeshRenderer;
+    [SerializeField] private GameObject _bulb;
     [SerializeField] private Material _greenBulbMaterial;
     [SerializeField] private Material _redBulbMaterial;
+
+    [SerializeField] private Color _redLightColor;
+    [SerializeField] private Color _greenLightColor;
+
+    private MeshRenderer _bulbMeshRenderer;
+    private Light _bulbLight;
+
+
+    private void Awake()
+    {
+        _bulbMeshRenderer = _bulb.gameObject.GetComponent<MeshRenderer>();
+        _bulbLight = _bulb.gameObject.GetComponent<Light>();
+    }
 
     public override void OnInteract(InteractionCatcher interactionCatcher)
     {
@@ -21,6 +34,7 @@ public class RestartPowerSupplyInteraction : Interactable
         yield return new WaitForSecondsRealtime(5f);
 
         _bulbMeshRenderer.material = _greenBulbMaterial;
+        _bulbLight.color = _greenLightColor;
 
         PowerSupplyRestarted?.Invoke();
 
@@ -30,6 +44,7 @@ public class RestartPowerSupplyInteraction : Interactable
     public override void ResetByDefault()
     {
         base.ResetByDefault();
+        _bulbLight.color = _redLightColor;
         _bulbMeshRenderer.material = _redBulbMaterial;
     }
 }
