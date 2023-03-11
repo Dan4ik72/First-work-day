@@ -13,4 +13,9 @@ public abstract class Interactable : MonoBehaviour
     public Sprite InteractionIcon => _interactionIcon;
 
     public abstract void OnInteract(InteractionCatcher interactionCatcher);
+
+    public void ResetByDefault()
+    {
+        IsAvailable = true;
+    }
 }
