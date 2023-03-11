@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class MainMenu : MonoBehaviour
 {
-    private void OnEnable()
-    {
-        PauseGame();
-    }
+    [SerializeField] private Game _game;
 
     public void PauseGame()
     {
