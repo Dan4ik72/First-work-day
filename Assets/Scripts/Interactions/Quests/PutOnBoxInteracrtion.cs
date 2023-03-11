@@ -17,6 +17,8 @@ public class PutOnBoxInteracrtion : Interactable
             Destroy(block.gameObject);
 
             BoxPuttedOn?.Invoke();
+
+            IsAvailable = false;
         }
     }
 }

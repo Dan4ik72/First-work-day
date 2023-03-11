@@ -29,5 +29,7 @@ public class ReloadComputerInteractoin : Interactable
 
         _screenMeshRenderer.material = _material;
         ComputerReloaded?.Invoke();
+
+        IsAvailable = false;
     }
 }

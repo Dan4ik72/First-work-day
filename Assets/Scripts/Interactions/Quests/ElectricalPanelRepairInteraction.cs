@@ -36,5 +36,7 @@ public class ElectricalPanelRepairInteraction : Interactable
         playerMovement.enabled = true;
 
         ElectrilacPanelRepaired?.Invoke();
+
+        IsAvailable = false;
     }
 }

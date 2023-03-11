@@ -22,5 +22,7 @@ public class RestartPowerSupplyInteraction : Interactable
         _bulbMeshRenderer.material = _greenBulbMaterial;
 
         PowerSupplyRestarted?.Invoke();
+
+        IsAvailable = false;
     }
 }
