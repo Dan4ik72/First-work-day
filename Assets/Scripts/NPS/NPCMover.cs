@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class NpsMover : MonoBehaviour
+public class NPCMover : MonoBehaviour
 {
     public event UnityAction TargetPointReached;
 
