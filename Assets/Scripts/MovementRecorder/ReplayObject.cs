@@ -22,6 +22,9 @@ public class ReplayObject : MonoBehaviour
 
     public void SetDataForFrame(ReplayData data)
     {
+        transform.position = data.Position;
+        transform.rotation = data.Rotation;
+        /*
         _horizontalSpeed = data.Horizontal * _speed;
         _verticalSpeed = data.Vertical * _speed;
 
@@ -29,8 +32,8 @@ public class ReplayObject : MonoBehaviour
             _animator.SetBool("Walking", true);
         else
             _animator.SetBool("Walking", false);
-        */
         Move();
+        */
     }
 
     private void Move()

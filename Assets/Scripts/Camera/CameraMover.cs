@@ -9,7 +9,7 @@ public class CameraMover : MonoBehaviour
 
     [SerializeField] private float _zoomStep = 2f;
     [SerializeField] private float _zoomDampening = 7.5f;
-    [SerializeField] private float _zoomMinHeight = 5f;
+    [SerializeField] private float _zoomMinHeight = 4f;
     [SerializeField] private float _zoomMaxHeight = 50f;
     [SerializeField] private float _zoomSpeed = 2f;
 
@@ -17,7 +17,7 @@ public class CameraMover : MonoBehaviour
 
     private void Start()
     {
-        _zoomHeight = _camera.localPosition.y;
+        _zoomHeight = _zoomMinHeight;
     }
 
     private void Update()
