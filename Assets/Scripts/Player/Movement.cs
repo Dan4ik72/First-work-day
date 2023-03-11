@@ -18,6 +18,11 @@ public class Movement : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody>();
     }
 
+    private void OnDisable()
+    {
+        _rigidbody.velocity = Vector3.zero;
+    }
+
     private void FixedUpdate()
     {
         _horizontalSpeed = Input.GetAxisRaw("Horizontal") * _speed;
