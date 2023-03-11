@@ -9929,12 +9929,20 @@ PrefabInstance:
       value: Canvas(UI) (1)
       objectReference: {fileID: 0}
     - target: {fileID: 9027158656243830170, guid: 9af2acea034f03043a6dd7eb52ab4f6f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9027158656243830170, guid: 9af2acea034f03043a6dd7eb52ab4f6f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1150306970}
     - target: {fileID: 9027158656243830170, guid: 9af2acea034f03043a6dd7eb52ab4f6f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: RestartGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 9027158656243830170, guid: 9af2acea034f03043a6dd7eb52ab4f6f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Game, Assembly-CSharp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9af2acea034f03043a6dd7eb52ab4f6f, type: 3}
