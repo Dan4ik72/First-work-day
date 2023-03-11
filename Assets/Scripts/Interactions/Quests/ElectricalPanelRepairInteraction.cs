@@ -1,18 +1,19 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class ElectricalPanelRepairInteraction : Interactable
 {
     [SerializeField] private GameObject _nippers;
+    [SerializeField] private Animator _playerAnimator;
 
     private Vector3 _startPosition;
     private Quaternion _startRotation;
 
-    //public event UnityAction ElectrilacPanelRepaired;
-
-    [SerializeField] private Animator _playerAnimator;
+    private void Start()
+    {
+        _startPosition = _nippers.transform.position;
+        _startRotation = _nippers.transform.rotation;
+    }
 
     public override void OnInteract(InteractionCatcher interactionCatcher)
     {
@@ -22,7 +23,6 @@ public class ElectricalPanelRepairInteraction : Interactable
                 return;
 
             var nippers = interactionCatcher.GetComponentInChildren<PickUpNippersInteraction>();
-
             StartCoroutine(RepairElectricalPanel(nippers));
         }        
     }
@@ -39,9 +39,6 @@ public class ElectricalPanelRepairInteraction : Interactable
         yield return new WaitForSecondsRealtime(3f);
 
         playerMovement.enabled = true;
-
-        //InteractionDone?.Invoke();
-
         IsAvailable = false;
     }
 
