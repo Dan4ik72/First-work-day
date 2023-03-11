@@ -72,7 +72,7 @@ public class Game : MonoBehaviour
         _NPCTriggerAfterExplosion.NPCMover.enabled = true;
         Destroy(_NPCTriggerAfterExplosion.gameObject);
 
-        RestartQuests();
+        //RestartQuests();
     }
 
     private void OnRestarted()
@@ -116,11 +116,17 @@ public class Game : MonoBehaviour
         _player.GetComponent<Movement>().enabled = false;
     }
 
+    public void ShowDonePanel()
+    {
+        _donePanel.SetActive(true);
+        _player.GetComponent<Movement>().enabled = false;
+    }
+
     public bool IsQuestsDone()
     {
         foreach (var quest in _quests)
         {
-            if (quest.IsAvailable == false)
+            if (quest.IsAvailable == true)
                 return false;
         }
 

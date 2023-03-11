@@ -22,6 +22,7 @@ public class TimeMachineIntaraction : Interactable
 
         _player.transform.position = _spawnPoints[random].position;
         _player.transform.rotation = _spawnPoints[random].rotation;
+        Game.Instance.RestartQuests();
         Restarted?.Invoke();
     }
 
