@@ -17,6 +17,7 @@ public class RestartPowerSupplyInteraction : Interactable
     private MeshRenderer _bulbMeshRenderer;
     private Light _bulbLight;
 
+    private Coroutine _coroutine;
 
     private void Awake()
     {
@@ -26,7 +27,7 @@ public class RestartPowerSupplyInteraction : Interactable
 
     public override void OnInteract(InteractionCatcher interactionCatcher)
     {
-        StartCoroutine(RestartPowerSupply());
+        _coroutine = StartCoroutine(RestartPowerSupply());
     }
 
     private IEnumerator RestartPowerSupply()
@@ -44,6 +45,12 @@ public class RestartPowerSupplyInteraction : Interactable
     public override void ResetByDefault()
     {
         base.ResetByDefault();
+
+        if (_coroutine != null)
+        {
+            StopCoroutine(_coroutine);
+        }
+
         _bulbLight.color = _redLightColor;
         _bulbMeshRenderer.material = _redBulbMaterial;
     }

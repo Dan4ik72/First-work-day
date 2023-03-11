@@ -46,6 +46,7 @@ public class ElectricalPanelRepairInteraction : Interactable
     {
         base.ResetByDefault();
         _nippers.SetActive(true);
+        _nippers.transform.parent = null;
         _nippers.transform.position = _startPosition;
         _nippers.transform.rotation = _startRotation;
     }
