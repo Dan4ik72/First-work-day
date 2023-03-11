@@ -31,11 +31,13 @@ public class Game : MonoBehaviour
     private void OnEnable()
     {
         _experimentInteraction.Explosion += OnExplosion;
+        _timeMachine.Restarted += OnRestarted;
     }
 
     private void OnDisable()
     {
         _experimentInteraction.Explosion -= OnExplosion;
+        _timeMachine.Restarted -= OnRestarted;
     }
 
     private void Start()
@@ -50,10 +52,24 @@ public class Game : MonoBehaviour
         _timeMachineBarrier.rotation = Quaternion.Euler(84.23f, 184.187f, 0f);
     }
 
+    private void OnRestarted()
+    {
+        ResetTimeMachineBarrier();
+    }
+
     public void RestartOnSpoted()
     {
         _player.GetComponent<Movement>().enabled = true;
         _timeMachine.RestartReplays();
+
+        ResetTimeMachineBarrier();
+    }
+
+    public void ResetTimeMachineBarrier()
+    {
+        _timeMachineBarrier.GetComponent<MeshCollider>().enabled = true;
+        _timeMachineBarrier.position = _timeMachineBarrierPosition;
+        _timeMachineBarrier.rotation = _timeMachineBarrierRotation;
     }
 
     public void ShowSpottedPanel()
