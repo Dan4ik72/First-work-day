@@ -1,0 +1,63 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEditor.TextCore.Text;
+using UnityEngine;
+
+[RequireComponent(typeof(CuratorMoveState))]
+public class CuratorDialogueState : MonoBehaviour
+{
+    [SerializeField] private DialogueHandler _dialogueHandler;
+    [SerializeField] private List<DialogueInfo> _dialogueInfoSequence = new List<DialogueInfo>();
+
+    private CuratorMoveState _moveState;
+
+    private int _currentDialogueInfoIndex = -1;
+
+    private void Awake()
+    {
+        _moveState = GetComponent<CuratorMoveState>();
+    }
+
+    private void OnEnable()
+    {
+        _moveState.enabled = false;
+        _dialogueHandler.DialogueEnded += OnDialogueEnded;
+    }
+
+    private void OnDisable()
+    {
+        _dialogueHandler.DialogueEnded -= OnDialogueEnded;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.TryGetComponent(out Player player))
+        {
+            Debug.Log(player);
+
+            StartDialogue();
+        }
+    }
+
+    private void StartDialogue()
+    {
+        if (_currentDialogueInfoIndex + 1>= _dialogueInfoSequence.Count)
+        {
+            Debug.Log(_currentDialogueInfoIndex);
+            return;
+        }
+
+        _currentDialogueInfoIndex++;
+
+        _dialogueHandler.StartDialogue(_dialogueInfoSequence[_currentDialogueInfoIndex]);
+    }
+
+    private void OnDialogueEnded()
+    {
+        if (_dialogueHandler._currentDialogueInfo == _dialogueInfoSequence[_currentDialogueInfoIndex])
+        {            
+            _moveState.enabled = true;
+            _moveState.SetNextPath();
+        }
+    }
+}

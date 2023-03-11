@@ -1,11 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class DialogueHandler : MonoBehaviour
 {
+    public event UnityAction DialogueEnded;
+
     [SerializeField] private DialogueRenderer _dialogueRenderer;
     [SerializeField] private Movement _movement;
+
+    public DialogueInfo _currentDialogueInfo { get; private set; }
 
     private void OnEnable()
     {
@@ -23,10 +28,16 @@ public class DialogueHandler : MonoBehaviour
 
         _dialogueRenderer.gameObject.SetActive(true);
         _dialogueRenderer.StartDialogue(dialogueInfo);
+
+        _currentDialogueInfo = dialogueInfo;
     }
 
     private void OnDialogueEnded()
     {
+        DialogueEnded?.Invoke();
+
+        _currentDialogueInfo = null;
+
         _movement.enabled = true;
     }
 }

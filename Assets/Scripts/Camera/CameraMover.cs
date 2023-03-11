@@ -27,10 +27,9 @@ public class CameraMover : MonoBehaviour
             Zoom(input);
     }
 
-
     private void FixedUpdate()
     {
-        transform.position = _target.transform.position;
+        transform.position = _target.position;
         UpdateCameraPosition();
     }
 
