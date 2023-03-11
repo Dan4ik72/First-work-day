@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,7 @@ public class Game : MonoBehaviour
     [SerializeField] private GameObject _notInTimePanel;
     [SerializeField] private Player _player;
     [SerializeField] private Interactable[] _quests;
+    [SerializeField] private NPCTriggerReactor _NPCTriggerReactor;
 
     public static Game Instance;
     private Vector3 _timeMachineBarrierPosition;
@@ -33,12 +35,19 @@ public class Game : MonoBehaviour
     {
         _experimentInteraction.Explosion += OnExplosion;
         _timeMachine.Restarted += OnRestarted;
+        _NPCTriggerReactor.NPCArrived += OnNPCArrived;
+    }
+
+    private void OnNPCArrived()
+    {
+        _experimentInteraction.ResetByDefault();
     }
 
     private void OnDisable()
     {
         _experimentInteraction.Explosion -= OnExplosion;
         _timeMachine.Restarted -= OnRestarted;
+        _NPCTriggerReactor.NPCArrived -= OnNPCArrived;
     }
 
     private void Start()
