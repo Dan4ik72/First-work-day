@@ -6,11 +6,21 @@ public class PlayerDetector : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if(other.TryGetComponent(out Player player))
+        CheckIfPlayer(other);
+    }
+
+    private void CheckIfPlayer(Collider other)
+    {
+        if (other.TryGetComponent(out Player player))
         {
-            if(Physics.Raycast(transform.position, player.transform.position , out RaycastHit hit) == false)
+            if (Physics.Raycast(transform.parent.position, (player.transform.position - transform.parent.position), out RaycastHit hit) == true)
             {
-                OnPlayerEntered();
+                if (hit.transform.TryGetComponent<Player>(out Player p) == true)
+                {
+                    Game.Instance.RestartOnSpoted();
+                    Debug.Log(hit.transform.name);
+                    OnPlayerEntered();
+                }
             }
         }
     }

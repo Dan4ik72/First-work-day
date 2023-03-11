@@ -20,4 +20,15 @@ public class TimeMachineIntaraction : Interactable
         _player.transform.position = _spawnPoints[random].position;
         _player.transform.rotation = _spawnPoints[random].rotation;
     }
+
+    public void RestartReplays()
+    {
+        _npc.RestartReplay();
+        _player.GetComponent<Recorder>().RestartReplay();
+
+        int random = Random.Range(0, _spawnPoints.Length);
+
+        _player.transform.position = _spawnPoints[random].position;
+        _player.transform.rotation = _spawnPoints[random].rotation;
+    }
 }

@@ -68,7 +68,7 @@ public class Recorder : MonoBehaviour
         _isDoingReplay = true;
     }
 
-    private void RestartReplay()
+    public void RestartReplay()
     {
         _isDoingReplay = true;
         _record.RestartFromBegining();

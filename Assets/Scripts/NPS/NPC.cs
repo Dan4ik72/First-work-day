@@ -8,4 +8,9 @@ public class NPC : MonoBehaviour
     {
         _recorder.StartCorutineReplay();
     }
+
+    public void RestartReplay()
+    {
+        _recorder.RestartReplay();
+    }
 }
