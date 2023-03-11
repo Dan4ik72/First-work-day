@@ -10,7 +10,7 @@ public class ExperimentInteraction : Interactable
 
     public UnityAction Explosion;
 
-    public override void OnInteract()
+    public override void OnInteract(InteractionCatcher interactionCatcher)
     {
         Debug.Log("Boom!");
         _explosion.Play();

@@ -28,7 +28,10 @@ public class Recorder : MonoBehaviour
             bool hasMoreFrames = _record.PlayNextFrame();
 
             if (hasMoreFrames == false)
-                RestartReplay();
+            {
+                Game.Instance.ShowNotInTimePanel();
+                _isDoingReplay = false;
+            }
         }
     }
 

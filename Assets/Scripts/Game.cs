@@ -7,6 +7,9 @@ public class Game : MonoBehaviour
     [SerializeField] private ExperimentInteraction _experimentInteraction;
     [SerializeField] private Transform _timeMachineBarrier;
     [SerializeField] private TimeMachineIntaraction _timeMachine;
+    [SerializeField] private GameObject _spottedPanel;
+    [SerializeField] private GameObject _notInTimePanel;
+    [SerializeField] private Player _player;
 
     public static Game Instance;
     private Vector3 _timeMachineBarrierPosition;
@@ -49,6 +52,19 @@ public class Game : MonoBehaviour
 
     public void RestartOnSpoted()
     {
+        _player.GetComponent<Movement>().enabled = true;
         _timeMachine.RestartReplays();
+    }
+
+    public void ShowSpottedPanel()
+    {
+        _spottedPanel.SetActive(true);
+        _player.GetComponent<Movement>().enabled = false;
+    }
+
+    public void ShowNotInTimePanel()
+    {
+        _notInTimePanel.SetActive(true);
+        _player.GetComponent<Movement>().enabled = false;
     }
 }
