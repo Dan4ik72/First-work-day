@@ -5,6 +5,11 @@ using UnityEngine.Events;
 
 public class ElectricalPanelRepairInteraction : Interactable
 {
+    [SerializeField] private GameObject _nippers;
+
+    private Vector3 _startPosition;
+    private Quaternion _startRotation;
+
     public event UnityAction ElectrilacPanelRepaired;
 
     [SerializeField] private Animator _playerAnimator;
@@ -28,15 +33,23 @@ public class ElectricalPanelRepairInteraction : Interactable
 
         playerMovement.enabled = false;
         //play player animation
-        Destroy(nippers.gameObject);
         nippers.transform.parent = transform;
+        nippers.gameObject.SetActive(false);
 
-        yield return new WaitForSecondsRealtime(5f);
+        yield return new WaitForSecondsRealtime(3f);
 
         playerMovement.enabled = true;
 
         ElectrilacPanelRepaired?.Invoke();
 
         IsAvailable = false;
+    }
+
+    public override void ResetByDefault()
+    {
+        base.ResetByDefault();
+        _nippers.SetActive(true);
+        _nippers.transform.position = _startPosition;
+        _nippers.transform.rotation = _startRotation;
     }
 }

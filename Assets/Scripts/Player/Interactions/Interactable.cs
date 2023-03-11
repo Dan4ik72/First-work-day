@@ -14,8 +14,13 @@ public abstract class Interactable : MonoBehaviour
 
     public abstract void OnInteract(InteractionCatcher interactionCatcher);
 
-    public void ResetByDefault()
+    public virtual void ResetByDefault()
     {
         IsAvailable = true;
+    }
+
+    public void DisableQuest()
+    {
+        IsAvailable = false;
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ReplayObject : MonoBehaviour
 {
-    [SerializeField] private float _speed = 55;
+    //[SerializeField] private float _speed = 55;
     [SerializeField] private float _stopSpeed = 1;
     [SerializeField] private Vector3 _limitVelocity = new Vector3(4f, 4f, 4f);
     [SerializeField] private float _visualModelRotationSpeed = 10f;
