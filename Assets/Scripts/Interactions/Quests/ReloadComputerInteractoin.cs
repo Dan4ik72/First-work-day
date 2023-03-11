@@ -7,12 +7,12 @@ public class ReloadComputerInteractoin : Interactable
 {
     public event UnityAction ComputerReloaded;
 
-    [SerializeField] private MeshRenderer _screenMeshRenderer;
+    [SerializeField] private MeshRenderer[] _screenMeshRenderers;
     [SerializeField] private Material _material;
 
     private void Awake()
     {
-        _screenMeshRenderer = GetComponent<MeshRenderer>();
+        //_screenMeshRenderer = GetComponent<MeshRenderer>();
     }
 
     public override void OnInteract(InteractionCatcher interactionCatcher)
@@ -27,7 +27,11 @@ public class ReloadComputerInteractoin : Interactable
     {
         yield return new WaitForSecondsRealtime(5f);
 
-        _screenMeshRenderer.material = _material;
+        foreach (var screen in _screenMeshRenderers)
+        {
+            screen.material = _material;
+        }
+        //_screenMeshRenderers.material = _material;
         ComputerReloaded?.Invoke();
     }
 }
