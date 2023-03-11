@@ -31,9 +31,12 @@ public class CuratorDialogueState : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.TryGetComponent(out Player player))
+        if (this.enabled == true)
         {
-            StartDialogue();
+            if (other.gameObject.TryGetComponent(out Player player))
+            {
+                StartDialogue();
+            }
         }
     }
 
