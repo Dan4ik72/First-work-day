@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TimeMachineIntaraction : Interactable
 {
-    [SerializeField] private Transform _spawnPoint;
+    [SerializeField] private Transform[] _spawnPoints;
     [SerializeField] private Player _player;
 
     public override void OnInteract()
@@ -12,7 +12,9 @@ public class TimeMachineIntaraction : Interactable
         Debug.Log("Time Travel");
         _player.GetComponent<Recorder>().StartCorutineReplay();
 
-        _player.transform.position = _spawnPoint.position;
-        _player.transform.rotation = _spawnPoint.rotation;
+        int random = Random.Range(0, _spawnPoints.Length);
+
+        _player.transform.position = _spawnPoints[random].position;
+        _player.transform.rotation = _spawnPoints[random].rotation;
     }
 }
