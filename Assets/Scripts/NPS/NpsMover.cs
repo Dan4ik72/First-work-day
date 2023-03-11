@@ -16,7 +16,7 @@ public class NpsMover : MonoBehaviour
 
     public bool IsWalking { get; private set; }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (_targetPoint == null)
             return;
