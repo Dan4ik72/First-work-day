@@ -8,12 +8,8 @@ public class ReloadComputerInteractoin : Interactable
     public event UnityAction ComputerReloaded;
 
     [SerializeField] private MeshRenderer[] _screenMeshRenderers;
-    [SerializeField] private Material _material;
-
-    private void Awake()
-    {
-        //_screenMeshRenderer = GetComponent<MeshRenderer>();
-    }
+    [SerializeField] private Material _doneMaterial;
+    [SerializeField] private Material _startMaterial;
 
     public override void OnInteract(InteractionCatcher interactionCatcher)
     {
@@ -25,15 +21,24 @@ public class ReloadComputerInteractoin : Interactable
 
     private IEnumerator ReloadComputer()
     {
-        yield return new WaitForSecondsRealtime(5f);
+        yield return new WaitForSecondsRealtime(3f);
 
         foreach (var screen in _screenMeshRenderers)
         {
-            screen.material = _material;
+            screen.material = _doneMaterial;
         }
-        //_screenMeshRenderers.material = _material;
-        ComputerReloaded?.Invoke();
 
+        ComputerReloaded?.Invoke();
         IsAvailable = false;
+    }
+
+    public override void ResetByDefault()
+    {
+        base.ResetByDefault();
+
+        foreach (var screen in _screenMeshRenderers)
+        {
+            screen.material = _startMaterial;
+        }
     }
 }

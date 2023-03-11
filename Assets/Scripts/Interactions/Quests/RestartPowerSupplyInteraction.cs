@@ -9,6 +9,7 @@ public class RestartPowerSupplyInteraction : Interactable
 
     [SerializeField] private MeshRenderer _bulbMeshRenderer;
     [SerializeField] private Material _greenBulbMaterial;
+    [SerializeField] private Material _redBulbMaterial;
 
     public override void OnInteract(InteractionCatcher interactionCatcher)
     {
@@ -24,5 +25,11 @@ public class RestartPowerSupplyInteraction : Interactable
         PowerSupplyRestarted?.Invoke();
 
         IsAvailable = false;
+    }
+
+    public override void ResetByDefault()
+    {
+        base.ResetByDefault();
+        _bulbMeshRenderer.material = _redBulbMaterial;
     }
 }

@@ -15,6 +15,7 @@ public class ExperimentInteraction : Interactable
         Debug.Log("Boom!");
         _explosion.Play();
         _player.GetComponent<Recorder>().StopRecording();
+        DisableQuest();
         Explosion?.Invoke();
     }
 }

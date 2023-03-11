@@ -10,6 +10,7 @@ public class Game : MonoBehaviour
     [SerializeField] private GameObject _spottedPanel;
     [SerializeField] private GameObject _notInTimePanel;
     [SerializeField] private Player _player;
+    [SerializeField] private Interactable[] _quests;
 
     public static Game Instance;
     private Vector3 _timeMachineBarrierPosition;
@@ -44,12 +45,23 @@ public class Game : MonoBehaviour
     {
         _timeMachineBarrierPosition = _timeMachineBarrier.position;
         _timeMachineBarrierRotation = _timeMachineBarrier.rotation;
+        _experimentInteraction.DisableQuest();
+
+        foreach (var quest in _quests)
+        {
+            quest.DisableQuest();
+        }
     }
 
     private void OnExplosion()
     {
         _timeMachineBarrier.GetComponent<MeshCollider>().enabled = false;
         _timeMachineBarrier.rotation = Quaternion.Euler(84.23f, 184.187f, 0f);
+
+        foreach (var quest in _quests)
+        {
+            quest.ResetByDefault();
+        }
     }
 
     private void OnRestarted()
