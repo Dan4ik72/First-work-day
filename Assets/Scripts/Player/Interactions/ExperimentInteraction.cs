@@ -6,7 +6,7 @@ public class ExperimentInteraction : Interactable
 {
     [SerializeField] private Player _player;
 
-    public override void OnInteract()
+    public override void OnInteract(InteractionCatcher interactionCatcher)
     {
         Debug.Log("Boom!");
         _player.GetComponent<Recorder>().StopRecording();

@@ -27,7 +27,7 @@ public class InteractionCatcher : MonoBehaviour
 
     public void OnInteract()
     {
-        _currentInteractable.OnInteract();
+        _currentInteractable.OnInteract(this);
         _interactionRenderer.DisableRender();
         _currentInteractable = null;
     }

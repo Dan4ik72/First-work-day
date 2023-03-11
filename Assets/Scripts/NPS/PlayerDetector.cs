@@ -13,8 +13,7 @@ public class PlayerDetector : MonoBehaviour
 
             if(Physics.Raycast(transform.position, player.transform.position , out RaycastHit hit) == false)
             {
-                //if(hit.collider.gameObject.TryGetComponent(out Player hittenPlayer))
-                    OnPlayerEntered();  
+                OnPlayerEntered();  
             }
         }
     }

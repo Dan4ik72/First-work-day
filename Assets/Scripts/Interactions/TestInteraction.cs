@@ -9,7 +9,7 @@ public class TestInteraction : Interactable
 
     [SerializeField] private DialogueInfo _dialogueInfo;
 
-    public override void OnInteract()
+    public override void OnInteract(InteractionCatcher interactionCatcher)
     {
         _dialogueHandler.StartDialogue(_dialogueInfo);
     }
