@@ -29,9 +29,9 @@ public class CuratorDialogueState : MonoBehaviour
         _dialogueHandler.DialogueEnded -= OnDialogueEnded;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.TryGetComponent(out Player player))
+        if (other.gameObject.TryGetComponent(out Player player))
         {
             StartDialogue();
         }
