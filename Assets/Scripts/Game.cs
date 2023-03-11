@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Game : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class Game : MonoBehaviour
     [SerializeField] private TimeMachineIntaraction _timeMachine;
     [SerializeField] private GameObject _spottedPanel;
     [SerializeField] private GameObject _notInTimePanel;
+    [SerializeField] private GameObject _donePanel;
     [SerializeField] private Player _player;
     [SerializeField] private Interactable[] _quests;
     [SerializeField] private NPCTriggerReactor _NPCTriggerReactor;
@@ -67,10 +69,7 @@ public class Game : MonoBehaviour
         _timeMachineBarrier.GetComponent<MeshCollider>().enabled = false;
         _timeMachineBarrier.rotation = Quaternion.Euler(84.23f, 184.187f, 0f);
 
-        foreach (var quest in _quests)
-        {
-            quest.ResetByDefault();
-        }
+        RestartQuests();
     }
 
     private void OnRestarted()
@@ -84,6 +83,15 @@ public class Game : MonoBehaviour
         _timeMachine.RestartReplays();
 
         ResetTimeMachineBarrier();
+        RestartQuests();
+    }
+
+    public void RestartQuests()
+    {
+        foreach (var quest in _quests)
+        {
+            quest.ResetByDefault();
+        }
     }
 
     public void ResetTimeMachineBarrier()
@@ -114,5 +122,10 @@ public class Game : MonoBehaviour
         }
 
         return true;
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(0);
     }
 }
