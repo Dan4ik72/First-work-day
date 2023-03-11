@@ -12,5 +12,5 @@ public abstract class Interactable : MonoBehaviour
     public string InteractionDescription => _interactionDescription;
     public Sprite InteractionIcon => _interactionIcon;
 
-    public abstract void OnInteract();
+    public abstract void OnInteract(InteractionCatcher interactionCatcher);
 }

@@ -8,7 +8,7 @@ public class TimeMachineIntaraction : Interactable
     [SerializeField] private Player _player;
     [SerializeField] private NPC _npc;
 
-    public override void OnInteract()
+    public override void OnInteract(InteractionCatcher interactionCatcher)
     {
         Debug.Log("Time Travel");
         _player.GetComponent<Recorder>().StartCorutineReplay();
