@@ -72,7 +72,7 @@ public class Game : MonoBehaviour
         _NPCTriggerAfterExplosion.NPCMover.enabled = true;
         Destroy(_NPCTriggerAfterExplosion.gameObject);
         _player.Radar.DeletePointersAndClearTargets();
-        //RestartQuests();
+        _timeMachine.TurnOn();
     }
 
     private void OnRestarted()

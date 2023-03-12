@@ -8,6 +8,7 @@ public class TimeMachineIntaraction : Interactable
     [SerializeField] private Transform[] _spawnPoints;
     [SerializeField] private Player _player;
     [SerializeField] private NPC _npc;
+    [SerializeField] private ParticleSystem _effect;
 
     [HideInInspector] public UnityAction Restarted;
 
@@ -23,6 +24,7 @@ public class TimeMachineIntaraction : Interactable
         _player.transform.position = _spawnPoints[random].position;
         _player.transform.rotation = _spawnPoints[random].rotation;
         Game.Instance.RestartQuests();
+        _effect.Stop();
         Restarted?.Invoke();
     }
 
@@ -36,5 +38,10 @@ public class TimeMachineIntaraction : Interactable
         _player.transform.position = _spawnPoints[random].position;
         _player.transform.rotation = _spawnPoints[random].rotation;
         Restarted?.Invoke();
+    }
+
+    public void TurnOn()
+    {
+        _effect.Play();
     }
 }
