@@ -22,8 +22,8 @@ MonoBehaviour:
       \u043D\u0435\u043C\u043D\u043E\u0433\u043E...."
     _leftSideIcon: {fileID: 0}
     _rightSideIcon: {fileID: 0}
-  - _name: "\u0414\u0435\u0432\u043E\u0447\u043A\u0430 \u0443\u0447\u0435\u043D\u044B\u0439"
+  - _name: "\u041C\u0430\u0440\u0438"
     _text: "\u041E\u0433\u043E! \u0414\u0430 \u0435\u0449\u0435 \u0438 \u0448\u0443\u043C\u0438\u0442
       \u043A\u0430\u043A!"
     _leftSideIcon: {fileID: 0}
-    _rightSideIcon: {fileID: 0}
+    _rightSideIcon: {fileID: 21300000, guid: a7520fe0401fb8349989d5936367219c, type: 3}

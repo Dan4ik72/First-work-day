@@ -24,4 +24,4 @@ MonoBehaviour:
     _text: "\u0417\u0434\u0435\u0441\u044C \u0434\u043E\u0432\u043E\u043B\u044C\u043D\u043E
       \u0443\u044E\u0442\u043D\u043E!"
     _leftSideIcon: {fileID: 0}
-    _rightSideIcon: {fileID: 0}
+    _rightSideIcon: {fileID: 21300000, guid: a7520fe0401fb8349989d5936367219c, type: 3}
