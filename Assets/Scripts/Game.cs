@@ -71,7 +71,7 @@ public class Game : MonoBehaviour
         _timeMachineBarrier.rotation = Quaternion.Euler(84.23f, 184.187f, 0f);
         _NPCTriggerAfterExplosion.NPCMover.enabled = true;
         Destroy(_NPCTriggerAfterExplosion.gameObject);
-
+        _player.Radar.DeletePointersAndClearTargets();
         //RestartQuests();
     }
 
@@ -112,6 +112,9 @@ public class Game : MonoBehaviour
 
     public void ShowNotInTimePanel()
     {
+        if (_spottedPanel.active == true)
+            return;
+
         _notInTimePanel.SetActive(true);
         _player.GetComponent<Movement>().enabled = false;
     }

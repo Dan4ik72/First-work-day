@@ -4248,6 +4248,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1025972157}
   - component: {fileID: 1025972156}
+  - component: {fileID: 1025972165}
   - component: {fileID: 1025972163}
   - component: {fileID: 1025972160}
   - component: {fileID: 1025972155}
@@ -4389,6 +4390,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _replayObjectPrefab: {fileID: 1329147144364865713, guid: 84da4ad2d6961ed4aa0a395bf52612b7, type: 3}
+  _player: {fileID: 1025972163}
 --- !u!114 &1025972161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4426,6 +4428,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7521e2170f826344ab0cadc20d5dc06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Radar: {fileID: 1025972165}
 --- !u!95 &1025972164
 Animator:
   serializedVersion: 4
@@ -4446,6 +4449,23 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1025972165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1025972153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6695a7e44338e4648b91d0c9a7de0b52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _radarPointerPrefab: {fileID: 5063290132694451560, guid: d7d42a4e58bfba84e8e55d66dd0cda39, type: 3}
+  _uiCanvas: {fileID: 1880969660}
+  _radarIcon: {fileID: 21300000, guid: a44274d89d1862047b6e9f8c54aff02d, type: 3}
+  _targets:
+  - {fileID: 8068599432980461623}
 --- !u!1 &1027604667 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: fb4538fe9e1d43845aac8a547643120f, type: 3}
@@ -13238,7 +13258,6 @@ GameObject:
   - component: {fileID: 8068599432980461616}
   - component: {fileID: 8068599432980461617}
   - component: {fileID: 8068599432980461618}
-  - component: {fileID: 9076613001664455975}
   - component: {fileID: 9076613001664455974}
   - component: {fileID: 9053792103209577576}
   - component: {fileID: 8068599432980461619}
@@ -13493,6 +13512,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _replayObjectPrefab: {fileID: 1329147144364865713, guid: 84da4ad2d6961ed4aa0a395bf52612b7, type: 3}
+  _player: {fileID: 1025972163}
 --- !u!114 &9076613001664455974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13506,22 +13526,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _recorder: {fileID: 9053792103209577576}
---- !u!114 &9076613001664455975
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8068599432980461629}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 800bb3048b5e1bd4fb710b074fce0fcd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _radarPointerPrefab: {fileID: 5063290132694451560, guid: d7d42a4e58bfba84e8e55d66dd0cda39, type: 3}
-  _uiCanvas: {fileID: 1880969660}
-  _player: {fileID: 1025972163}
-  _radarIcon: {fileID: 21300000, guid: a44274d89d1862047b6e9f8c54aff02d, type: 3}
 --- !u!4 &9129848450771339836
 Transform:
   m_ObjectHideFlags: 0

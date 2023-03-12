@@ -6,6 +6,7 @@ using UnityEngine;
 public class Recorder : MonoBehaviour
 {
     [SerializeField] private GameObject _replayObjectPrefab;
+    [SerializeField] private Player _player;
 
     private Queue<ReplayData> _recordQueue;
     private bool _isDoingReplay = false;
@@ -71,7 +72,7 @@ public class Recorder : MonoBehaviour
     {
         _record = new Record(_recordQueue, _startPosition, _startRotation);
         _recordQueue.Clear();
-        _record.InstantiateReplayObject(_replayObjectPrefab);
+        _record.InstantiateReplayObject(_replayObjectPrefab, _player);
         _isRecording = false;
 
         yield return new WaitForSeconds(2f);

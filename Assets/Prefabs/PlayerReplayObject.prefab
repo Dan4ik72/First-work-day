@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1329147144364865717}
   - component: {fileID: 524755185024409583}
+  - component: {fileID: 3346892501033488911}
   - component: {fileID: 1329147144364865716}
   - component: {fileID: 1329147144364865719}
   - component: {fileID: 1329147144364865718}
@@ -49,10 +50,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 451dbb4ea47cf3744b248f7698cecbb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 55
   _stopSpeed: 1
   _limitVelocity: {x: 4, y: 4, z: 4}
   _visualModelRotationSpeed: 10
+--- !u!114 &3346892501033488911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1329147144364865713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 800bb3048b5e1bd4fb710b074fce0fcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _radarPointerPrefab: {fileID: 1329147144364865713}
+  _uiCanvas: {fileID: 0}
+  _player: {fileID: 0}
+  _radarIcon: {fileID: 21300000, guid: b2ec9e1091f74e54aa8443091673b80a, type: 3}
 --- !u!33 &1329147144364865716
 MeshFilter:
   m_ObjectHideFlags: 0

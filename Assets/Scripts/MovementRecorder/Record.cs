@@ -46,12 +46,13 @@ public class Record
         return hasMoreFrames;
     }
 
-    public void InstantiateReplayObject(GameObject replayObjectPrafab)
+    public void InstantiateReplayObject(GameObject replayObjectPrafab, Player player)
     {
         if (_replayQueue.Count != 0)
         {
             ReplayData startingData = _replayQueue.Peek();
             ReplayObject = Object.Instantiate(replayObjectPrafab, _startPosition, Quaternion.identity).GetComponent<ReplayObject>();
+            player.Radar.AddTarget(ReplayObject.transform);
         }
     }
 
