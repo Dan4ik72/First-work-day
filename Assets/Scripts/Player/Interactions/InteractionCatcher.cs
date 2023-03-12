@@ -19,8 +19,7 @@ public class InteractionCatcher : MonoBehaviour
                 return;
 
             TryToSetInteraction(interactable);
-        }
-        
+        }        
     }
 
     private void OnTriggerExit(Collider other)
