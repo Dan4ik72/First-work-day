@@ -3588,7 +3588,7 @@ MonoBehaviour:
     \u043A\u0443\u0441\u0430\u0447\u043A\u0438)"
   _interactionIcon: {fileID: 0}
   _nippers: {fileID: 489321890}
-  _playerMovement: {fileID: 0}
+  _playerMovement: {fileID: 1025972159}
   _audioSource: {fileID: 919132148681370759}
 --- !u!1001 &606003273
 PrefabInstance:
