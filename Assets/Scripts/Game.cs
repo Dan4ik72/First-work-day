@@ -67,6 +67,7 @@ public class Game : MonoBehaviour
         _timeMachineBarrier.GetComponent<MeshCollider>().enabled = false;
         _timeMachineBarrier.rotation = Quaternion.Euler(84.23f, 184.187f, 0f);
         _NPCTriggerAfterExplosion.NPCMover.enabled = true;
+        _NPCTriggerAfterExplosion.CuratorMoveState.IsMoving = true;
         Destroy(_NPCTriggerAfterExplosion.gameObject);
         _player.Radar.DeletePointersAndClearTargets();
         _timeMachine.TurnOn();

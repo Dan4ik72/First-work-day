@@ -17,7 +17,7 @@ public class CuratorMoveState : MonoBehaviour
     private int _currentPathIndex = -1;
     private int _currentTargetPointIndex = 0;
 
-    public bool IsMoving { get; private set; }
+    public bool IsMoving;
 
     private void Awake()
     {
