@@ -11,6 +11,8 @@ public class RadarNew : MonoBehaviour
 
     private List<RadarPointer> _radarPointers;
 
+    public Transform TargetsTransform => _targets[0];
+
     private void Start()
     {
         if (_radarPointers != null)
