@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
@@ -17,8 +18,6 @@ public class MusicController : MonoBehaviour
     private void Start()
     {
         _audioSource.PlayOneShot(_introMusic);
-
-        StartCoroutine(PlayMusicDelayed());
     }
 
     private void Update()
@@ -27,12 +26,5 @@ public class MusicController : MonoBehaviour
         {
             _audioSource.PlayOneShot(_introMusic);
         }
-    }
-
-    private IEnumerator PlayMusicDelayed()
-    {
-        yield return new WaitForSecondsRealtime(3f);
-
-        _audioSource.PlayOneShot(_introMusic);
     }
 }
