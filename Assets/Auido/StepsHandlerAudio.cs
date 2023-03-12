@@ -14,6 +14,7 @@ public class StepsHandlerAudio : MonoBehaviour
     private float _maxPitch = 0.8f;
 
     private Coroutine _playStepsCoroutine;
+    private WaitForSeconds _stepDelay = new WaitForSeconds(0.5f);
 
     private bool _isStarted = false;
 
@@ -59,7 +60,7 @@ public class StepsHandlerAudio : MonoBehaviour
 
     private IEnumerator PlayStepsDelayed()
     {
-        yield return new WaitForSecondsRealtime(0.6f);
+        yield return _stepDelay;
 
         PlayRandomStepSound();
 
