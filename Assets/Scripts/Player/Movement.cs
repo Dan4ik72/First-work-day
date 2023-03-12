@@ -13,6 +13,8 @@ public class Movement : MonoBehaviour
     private float _verticalSpeed;
     private Vector3 _targetSpeed;
 
+    public bool IsMoving => _rigidbody.velocity != Vector3.zero;
+
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
