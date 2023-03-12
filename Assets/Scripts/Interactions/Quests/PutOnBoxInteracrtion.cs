@@ -6,6 +6,7 @@ using UnityEngine.Events;
 public class PutOnBoxInteracrtion : Interactable
 {
     [SerializeField] private GameObject _block;
+    [SerializeField] private AudioSource _audioSource;
 
     private Vector3 _startPosition;
     private Quaternion _startRotation;
@@ -21,7 +22,8 @@ public class PutOnBoxInteracrtion : Interactable
     public override void OnInteract(InteractionCatcher interactionCatcher)
     {
         if (interactionCatcher.gameObject.GetComponentInChildren<PickUpBlockInteraction>() != null && IsAvailable == true)
-        {   
+        {
+            _audioSource.Play();
             var block = interactionCatcher.gameObject.GetComponentInChildren<PickUpBlockInteraction>();
 
             block.transform.parent = transform;

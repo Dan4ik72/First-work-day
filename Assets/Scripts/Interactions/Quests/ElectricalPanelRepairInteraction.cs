@@ -5,6 +5,7 @@ public class ElectricalPanelRepairInteraction : Interactable
 {
     [SerializeField] private GameObject _nippers;
     [SerializeField] private Animator _playerAnimator;
+    [SerializeField] private AudioSource _audioSource;
 
     private Vector3 _startPosition;
     private Quaternion _startRotation;
@@ -29,8 +30,9 @@ public class ElectricalPanelRepairInteraction : Interactable
 
     private IEnumerator RepairElectricalPanel(PickUpNippersInteraction nippers)
     {
-        var playerMovement = _playerAnimator.gameObject.GetComponent<Movement>();
+        _audioSource.Play();
 
+        var playerMovement = _playerAnimator.gameObject.GetComponent<Movement>();
         playerMovement.enabled = false;
         //play player animation
         nippers.transform.parent = transform;

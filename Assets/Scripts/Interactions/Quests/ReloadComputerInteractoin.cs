@@ -10,6 +10,7 @@ public class ReloadComputerInteractoin : Interactable
     [SerializeField] private MeshRenderer[] _screenMeshRenderers;
     [SerializeField] private Material _doneMaterial;
     [SerializeField] private Material _startMaterial;
+    [SerializeField] private AudioSource _audioSource;
 
     public override void OnInteract(InteractionCatcher interactionCatcher)
     {
@@ -21,7 +22,9 @@ public class ReloadComputerInteractoin : Interactable
 
     private IEnumerator ReloadComputer()
     {
-        yield return new WaitForSecondsRealtime(3f);
+        _audioSource.Play();
+
+        yield return new WaitForSecondsRealtime(2.5f);
 
         foreach (var screen in _screenMeshRenderers)
         {
