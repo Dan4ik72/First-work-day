@@ -10,13 +10,12 @@ public class MusicController : MonoBehaviour
     [SerializeField] private TimeMachineIntaraction _timeMachine;
     [SerializeField] private Game _gameManager;
     [SerializeField] private ExperimentInteraction _reactor;
-
     [SerializeField] private AudioClip _introMusicClip;
     [SerializeField] private AudioClip _stealthMusicClip;
 
     private AudioSource _audioSource;
-
     private AudioClip _currentAudioClip;
+    private float _startVolume;
 
     private void Awake()
     {
@@ -25,12 +24,12 @@ public class MusicController : MonoBehaviour
 
     private void OnEnable()
     {
-        _reactor.Explosion += ChangeMusic;
+        _reactor.Explosion += StartChangeMusic;
     }
 
     private void OnDisable()
     {
-        _reactor.Explosion -= ChangeMusic;
+        _reactor.Explosion -= StartChangeMusic;
     }
 
     private void Start()
@@ -53,8 +52,29 @@ public class MusicController : MonoBehaviour
         }                
     }
 
-    private void ChangeMusic()
+    private void StartChangeMusic()
     {
+        //_currentAudioClip = _stealthMusicClip;
+        StartCoroutine(ChangeMusic());
+    }
+
+    private IEnumerator ChangeMusic()
+    {
+        _startVolume = _audioSource.volume;
+
+        while(_audioSource.volume > 0)
+        {
+            _audioSource.volume = Mathf.Lerp(_audioSource.volume, -0.5f, Time.deltaTime);
+            yield return null;
+        }
+        _audioSource.Stop();
         _currentAudioClip = _stealthMusicClip;
+        PlayMusic();
+
+        while(_audioSource.volume < _startVolume - 0.05f)
+        {
+            _audioSource.volume = Mathf.Lerp(_audioSource.volume, _startVolume, Time.deltaTime);
+            yield return null;
+        }
     }
 }

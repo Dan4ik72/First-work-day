@@ -4,7 +4,7 @@ using UnityEngine;
 public class ElectricalPanelRepairInteraction : Interactable
 {
     [SerializeField] private GameObject _nippers;
-    [SerializeField] private Animator _playerAnimator;
+    [SerializeField] private Movement _playerMovement;
     [SerializeField] private AudioSource _audioSource;
 
     private Vector3 _startPosition;
@@ -32,15 +32,14 @@ public class ElectricalPanelRepairInteraction : Interactable
     {
         _audioSource.Play();
 
-        var playerMovement = _playerAnimator.gameObject.GetComponent<Movement>();
-        playerMovement.enabled = false;
+        _playerMovement.enabled = false;
         //play player animation
         nippers.transform.parent = transform;
         nippers.gameObject.SetActive(false);
 
         yield return new WaitForSecondsRealtime(3f);
 
-        playerMovement.enabled = true;
+        _playerMovement.enabled = true;
         IsAvailable = false;
     }
 
