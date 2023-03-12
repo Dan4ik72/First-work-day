@@ -17,6 +17,8 @@ public class CuratorMoveState : MonoBehaviour
     private int _currentPathIndex = -1;
     private int _currentTargetPointIndex = 0;
 
+    public bool IsMoving { get; private set; }
+
     private void Awake()
     {
         _mover = GetComponent<NPCMover>();
@@ -42,6 +44,8 @@ public class CuratorMoveState : MonoBehaviour
             return;
         }
 
+        IsMoving = true;
+
         _dialogueState.enabled = false;
 
         _currentPathIndex++;
@@ -60,6 +64,7 @@ public class CuratorMoveState : MonoBehaviour
         if (_currentTargetPointIndex >= _pathSequence[_currentPathIndex].TargetPointsTransform.Count)
         {
             PathCompleted?.Invoke();
+            IsMoving = false;
             _dialogueState.enabled = true;
             return;
         }
