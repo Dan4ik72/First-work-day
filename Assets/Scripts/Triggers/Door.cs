@@ -14,7 +14,6 @@ public class Door : MonoBehaviour
     private bool _isRotating;
     private int _persInTrigger;
 
-
     private void Start()
     {
         _boxCollider = GetComponent<BoxCollider>();
@@ -44,7 +43,6 @@ public class Door : MonoBehaviour
         }
     }
 
-
     private void OnTriggerEnter(Collider other)
     {
         _persInTrigger++;
@@ -55,7 +53,6 @@ public class Door : MonoBehaviour
         _persInTrigger--;
     }
 
-
     private IEnumerator Rotate(bool isOpening)
     {
         _isRotating = true;
@@ -64,8 +61,9 @@ public class Door : MonoBehaviour
         float openValue = -85;
 
         float startRotationY = _model.rotation.y;
-         float targetRotation = isOpening ? openValue : 0;
+        float targetRotation = isOpening ? openValue : 0;
         Quaternion rotation = _model.rotation;
+
         while (currentTime < rotationTime)
         {
             currentTime += Time.deltaTime;
@@ -73,8 +71,9 @@ public class Door : MonoBehaviour
             rotation.y = Mathf.MoveTowards(startRotationY, targetRotation, currentTime / rotationTime);
             _model.rotation = rotation;
 
-            yield return null;
+            yield return new WaitForSecondsRealtime(0.01f);
         }
+
         _isOpen = isOpening;
         _isRotating = false;
     }
