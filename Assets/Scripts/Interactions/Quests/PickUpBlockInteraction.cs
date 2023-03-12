@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class PickUpBlockInteraction : Interactable
 {
-    [SerializeField] private Vector3 _positionOffset;
+    [SerializeField] private GameObject _grabPoint;
 
     public override void OnInteract(InteractionCatcher interactionCatcher)
     {
-        transform.position = interactionCatcher.gameObject.transform.position + _positionOffset;
+        transform.position = _grabPoint.transform.position;
         transform.parent = interactionCatcher.gameObject.transform;
     }
 }

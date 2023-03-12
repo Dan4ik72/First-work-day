@@ -5,11 +5,11 @@ using UnityEngine;
 
 public class PickUpNippersInteraction : Interactable
 {
-    [SerializeField] private Vector3 _positionOffset = new Vector3(0, 1, 0);
+    [SerializeField] private GameObject _grabPoint;
 
     public override void OnInteract(InteractionCatcher interactionCatcher)
     {
-        transform.position = interactionCatcher.gameObject.transform.position + _positionOffset;
+        transform.position = _grabPoint.transform.position;
         transform.parent = interactionCatcher.gameObject.transform;
     }
 }
