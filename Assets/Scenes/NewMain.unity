@@ -226,7 +226,7 @@ GameObject:
   m_Component:
   - component: {fileID: 31398545}
   m_Layer: 3
-  m_Name: GameObject
+  m_Name: GrabPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -239,13 +239,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 31398544}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.88, y: 1.815, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.88000107, y: 1.815, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 112896033}
-  m_RootOrder: 3
+  m_Father: {fileID: 1025972157}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &32554527
 PrefabInstance:
@@ -2936,7 +2936,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _interactionDescription: "\u041F\u043E\u0434\u043D\u044F\u0442\u044C \u043A\u0443\u0441\u0430\u0447\u043A\u0438"
   _interactionIcon: {fileID: 0}
-  _grabPoint: {fileID: 0}
+  _grabPoint: {fileID: 31398544}
 --- !u!65 &489321892
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5373,6 +5373,7 @@ MonoBehaviour:
   _npc: {fileID: 9076613001664455974}
   _effect: {fileID: 7346556905290247624}
   _audioSource: {fileID: 967717228}
+  _teleportSound: {fileID: 8300000, guid: a95f6c32e8d7e734da6ab14e189548aa, type: 3}
 --- !u!4 &967717227 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: cca9dad0722c6ea4cb474dcb3023b35e, type: 3}
@@ -5707,6 +5708,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 112896033}
+  - {fileID: 31398545}
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5852,7 +5854,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.768
+  m_Volume: 0.536
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -5971,6 +5973,7 @@ MonoBehaviour:
   _player: {fileID: 1025972163}
   _explosion: {fileID: 1739269486}
   _audioSource: {fileID: 1027604673}
+  _boomSound: {fileID: 8300000, guid: 3c55ba9c10c236d45aeeb7d0f5b786bc, type: 3}
 --- !u!65 &1027604671
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5994,11 +5997,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 3c55ba9c10c236d45aeeb7d0f5b786bc, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 05de42af8b8c9af4c96cbd5150855609, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -8158,7 +8161,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1276642806}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 16be0ccc4d878654ead557a12c7596c5, type: 3}
   m_Name: 
@@ -8180,7 +8183,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.134
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -9733,7 +9736,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 28864e7599198dc4bacc4bbc2146ef2e, type: 3}
       propertyPath: m_Name
-      value: Time_machine
+      value: Time_machineBilboard
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 28864e7599198dc4bacc4bbc2146ef2e, type: 3}
@@ -22438,7 +22441,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _interactionDescription: "\u041F\u043E\u0434\u043D\u044F\u0442\u044C \u0431\u043B\u043E\u043A"
   _interactionIcon: {fileID: 0}
-  _grabPoint: {fileID: 0}
+  _grabPoint: {fileID: 31398544}
 --- !u!65 &8878389870606518595
 BoxCollider:
   m_ObjectHideFlags: 0

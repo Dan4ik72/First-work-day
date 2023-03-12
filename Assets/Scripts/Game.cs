@@ -77,6 +77,7 @@ public class Game : MonoBehaviour
 
     private void OnRestarted()
     {
+        _experimentInteraction.StopSound();
         ResetTimeMachineBarrier();
     }
 
