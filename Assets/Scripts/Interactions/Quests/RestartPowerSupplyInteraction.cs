@@ -15,6 +15,7 @@ public class RestartPowerSupplyInteraction : Interactable
     [SerializeField] private Color _greenLightColor;
 
     [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private AudioClip _audioServerOn;
 
     private MeshRenderer _bulbMeshRenderer;
     private Light _bulbLight;
@@ -29,13 +30,18 @@ public class RestartPowerSupplyInteraction : Interactable
 
     public override void OnInteract(InteractionCatcher interactionCatcher)
     {
-        _coroutine = StartCoroutine(RestartPowerSupply());
+        _audioSource.Stop();
+        _audioSource.PlayOneShot(_audioServerOn);
+        _bulbMeshRenderer.material = _greenBulbMaterial;
+        _bulbLight.color = _greenLightColor;
+        IsAvailable = false;
+
+        PowerSupplyRestarted?.Invoke();
+        //_coroutine = StartCoroutine(RestartPowerSupply());
     }
 
     private IEnumerator RestartPowerSupply()
     {
-        _audioSource.Play();
-
         yield return new WaitForSecondsRealtime(3f);
 
         _bulbMeshRenderer.material = _greenBulbMaterial;
