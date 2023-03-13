@@ -43,8 +43,6 @@ public class MusicController : MonoBehaviour
     {
         if(_audioSource.isPlaying == false)
         {
-            Debug.Log(_currentAudioClip);
-
             _audioSource.PlayOneShot(_currentAudioClip);
         }                
     }
@@ -68,7 +66,7 @@ public class MusicController : MonoBehaviour
         _currentAudioClip = _stealthMusicClip;
         PlayMusic();
 
-        while(_audioSource.volume < _startVolume - 0.05f)
+        while(_audioSource.volume < _startVolume - 0.30f)
         {
             _audioSource.volume = Mathf.Lerp(_audioSource.volume, _startVolume, Time.deltaTime);
             yield return null;

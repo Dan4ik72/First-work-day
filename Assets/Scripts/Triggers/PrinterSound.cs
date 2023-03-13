@@ -6,7 +6,7 @@ public class PrinterSound : MonoBehaviour
 {
     [SerializeField] private AudioSource _audioSource;
 
-    private WaitForSeconds _delay = new WaitForSeconds(15f);
+    private WaitForSeconds _delay = new WaitForSeconds(10f);
 
     private void Start()
     {
@@ -20,7 +20,7 @@ public class PrinterSound : MonoBehaviour
             yield return _delay;
 
             _audioSource.Play();
-            _delay = new WaitForSeconds(Random.Range(30f, 90f));
+            _delay = new WaitForSeconds(Random.Range(5f, 20f));
 
             yield return _delay;
         }

@@ -13,7 +13,6 @@ public class ExperimentInteraction : Interactable
 
     public override void OnInteract(InteractionCatcher interactionCatcher)
     {
-        Debug.Log("Boom!");
         _explosion.Play();
         _player.GetComponent<Recorder>().StopRecording();
         DisableQuest();
