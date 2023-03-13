@@ -17,6 +17,8 @@ public class DialogueRenderer : MonoBehaviour
 
     [SerializeField] private float _textSpeed;
 
+    [SerializeField] private CursorBehavior _cursorBehavior;
+
     private DialogueInfo _dialogueInfo;
 
     private Coroutine _textRenderCoroutine;
@@ -28,6 +30,7 @@ public class DialogueRenderer : MonoBehaviour
         _dialogueInfo = dialogueInfo;
 
         DialogueStarted?.Invoke();
+        _cursorBehavior.EnableCursor();
 
         ResetDialogue();
 
@@ -112,6 +115,7 @@ public class DialogueRenderer : MonoBehaviour
         _line.text = string.Empty;
 
         DialogueEnded?.Invoke();
+        _cursorBehavior.DisableCursor();
 
         gameObject.SetActive(false);
     }

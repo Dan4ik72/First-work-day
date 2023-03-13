@@ -15,7 +15,7 @@ public class Movement : MonoBehaviour
 
     public bool IsMoving => _rigidbody.velocity != Vector3.zero;
 
-    private void Start()
+    private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
     }

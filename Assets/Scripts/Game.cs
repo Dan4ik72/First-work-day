@@ -13,6 +13,7 @@ public class Game : MonoBehaviour
     [SerializeField] private Interactable[] _quests;
     [SerializeField] private NPCTriggerReactor _NPCTriggerReactor;
     [SerializeField] private NPCTriggerAfterExplosion _NPCTriggerAfterExplosion;
+    [SerializeField] private CursorBehavior _cursorBehavior;
 
     public static Game Instance;
     private Vector3 _timeMachineBarrierPosition;
@@ -105,6 +106,7 @@ public class Game : MonoBehaviour
 
     public void ShowSpottedPanel()
     {
+        _cursorBehavior.EnableCursor();
         _spottedPanel.SetActive(true);
         _player.GetComponent<Movement>().enabled = false;
     }
@@ -114,12 +116,15 @@ public class Game : MonoBehaviour
         if (_spottedPanel.active == true)
             return;
 
+        _cursorBehavior.EnableCursor();
+
         _notInTimePanel.SetActive(true);
         _player.GetComponent<Movement>().enabled = false;
     }
 
     public void ShowDonePanel()
     {
+        _cursorBehavior.EnableCursor();
         _donePanel.SetActive(true);
         _player.GetComponent<Movement>().enabled = false;
     }

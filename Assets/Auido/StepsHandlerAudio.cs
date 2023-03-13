@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class StepsHandlerAudio : MonoBehaviour
 {
-    [SerializeField] private Movement _movement;
+    [SerializeField] private Movement _playeMovement;
+    [SerializeField] private CuratorMoveState _curatorMoveState;
 
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private AudioClip _stepSound;
@@ -20,20 +21,13 @@ public class StepsHandlerAudio : MonoBehaviour
 
     private void Update()
     {
-        if (_movement.IsMoving == true)
+        if (_curatorMoveState != null && _curatorMoveState.IsMoving)
         {
-            if (_isStarted == true)
-            {
-                if(_playStepsCoroutine != null)
-                {
-                    return;
-                }
-                
-            }
-
-            _isStarted = true;
-
-            _playStepsCoroutine = StartCoroutine(PlayStepsDelayed());
+            TryPlayDelayedStepsSound();
+        }
+        else if(_playeMovement != null && _playeMovement.IsMoving)
+        {
+            TryPlayDelayedStepsSound();
         }
         else
         {
@@ -44,6 +38,22 @@ public class StepsHandlerAudio : MonoBehaviour
 
             StopCoroutine(_playStepsCoroutine);
         }        
+    }
+
+    private void TryPlayDelayedStepsSound()
+    {
+        if (_isStarted == true)
+        {
+            if (_playStepsCoroutine != null)
+            {
+                return;
+            }
+
+        }
+
+        _isStarted = true;
+
+        _playStepsCoroutine = StartCoroutine(PlayStepsDelayed());
     }
 
     private void PlayRandomStepSound()
