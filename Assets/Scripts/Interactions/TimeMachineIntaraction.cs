@@ -19,7 +19,7 @@ public class TimeMachineIntaraction : Interactable
         Debug.Log("Time Travel");
         _player.GetComponent<Recorder>().StartCorutineReplay();
         _npc.PlayRecord();
-        _npc.transform.position = new Vector3(-132.6f, 1.17f, -187.7f);
+        _npc.transform.position = new Vector3(-132.6f, 0f, -187.7f);
 
         int random = Random.Range(0, _spawnPoints.Length);
 
