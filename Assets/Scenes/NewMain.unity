@@ -6058,6 +6058,7 @@ MonoBehaviour:
   _effect: {fileID: 7346556905290247624}
   _audioSource: {fileID: 967717228}
   _teleportSound: {fileID: 8300000, guid: a95f6c32e8d7e734da6ab14e189548aa, type: 3}
+  _game: {fileID: 1150306970}
 --- !u!4 &967717227 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: cca9dad0722c6ea4cb474dcb3023b35e, type: 3}
@@ -6504,6 +6505,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _replayObjectPrefab: {fileID: 654901806054468713, guid: b52067aa1b6fc384b987768b7d6e3524, type: 3}
   _player: {fileID: 1025972163}
+  _game: {fileID: 1150306970}
 --- !u!114 &1025972161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29573,6 +29575,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _replayObjectPrefab: {fileID: 2651085007966697544, guid: 2fac5facf688a164caa2edcca597765c, type: 3}
   _player: {fileID: 1025972163}
+  _game: {fileID: 1150306970}
 --- !u!1 &9067823181090843658
 GameObject:
   m_ObjectHideFlags: 0

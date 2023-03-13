@@ -1,12 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerDetector : MonoBehaviour
 {
+    private Game _game;
+
     private void OnTriggerEnter(Collider other)
     {
         CheckIfPlayer(other);
+    }
+
+    private void Start()
+    {
+        _game = FindObjectOfType<Game>();
     }
 
     private void CheckIfPlayer(Collider other)
@@ -17,7 +22,7 @@ public class PlayerDetector : MonoBehaviour
             {
                 if (hit.transform.TryGetComponent<Player>(out Player p) == true)
                 {
-                    Game.Instance.ShowSpottedPanel();
+                    _game.ShowSpottedPanel();
                     OnPlayerEntered();
                 }
             }

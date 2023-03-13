@@ -15,12 +15,13 @@ public class Game : MonoBehaviour
     [SerializeField] private NPCTriggerAfterExplosion _NPCTriggerAfterExplosion;
     [SerializeField] private CursorBehavior _cursorBehavior;
 
-    public static Game Instance;
+    //public static Game Instance;
     private Vector3 _timeMachineBarrierPosition;
     private Quaternion _timeMachineBarrierRotation;
 
     private void Awake()
     {
+        /*
         if (Instance == null)
         {
             Instance = this;
@@ -30,6 +31,7 @@ public class Game : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        */
     }
 
     private void OnEnable()
@@ -52,6 +54,11 @@ public class Game : MonoBehaviour
     }
 
     private void Start()
+    {
+        ResetGame();
+    }
+
+    private void ResetGame()
     {
         _timeMachineBarrierPosition = _timeMachineBarrier.position;
         _timeMachineBarrierRotation = _timeMachineBarrier.rotation;
@@ -142,6 +149,6 @@ public class Game : MonoBehaviour
 
     public void RestartGame()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

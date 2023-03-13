@@ -11,7 +11,7 @@ public class TimeMachineIntaraction : Interactable
     [SerializeField] private ParticleSystem _effect;
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private AudioClip _teleportSound;
-
+    [SerializeField] private Game _game;
     [HideInInspector] public UnityAction Restarted;
 
     public override void OnInteract(InteractionCatcher interactionCatcher)
@@ -25,7 +25,7 @@ public class TimeMachineIntaraction : Interactable
 
         _player.transform.position = _spawnPoints[random].position;
         _player.transform.rotation = _spawnPoints[random].rotation;
-        Game.Instance.RestartQuests();
+        _game.RestartQuests();
         _effect.Stop();
         StartCoroutine(PlaySound());
         Restarted?.Invoke();

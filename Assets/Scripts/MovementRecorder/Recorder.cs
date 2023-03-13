@@ -7,6 +7,7 @@ public class Recorder : MonoBehaviour
 {
     [SerializeField] private GameObject _replayObjectPrefab;
     [SerializeField] private Player _player;
+    [SerializeField] private Game _game;
 
     private Queue<ReplayData> _recordQueue;
     private bool _isDoingReplay = false;
@@ -30,13 +31,13 @@ public class Recorder : MonoBehaviour
 
             if (hasMoreFrames == false)
             {
-                if (Game.Instance.IsQuestsDone())
+                if (_game.IsQuestsDone())
                 {
-                    Game.Instance.ShowDonePanel();
+                    _game.ShowDonePanel();
                 }
                 else
                 {
-                    Game.Instance.ShowNotInTimePanel();
+                    _game.ShowNotInTimePanel();
                 }
 
                 _isDoingReplay = false;
